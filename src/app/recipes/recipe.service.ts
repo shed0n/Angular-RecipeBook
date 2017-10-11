@@ -12,7 +12,7 @@ export class RecipeService {
 
 
     private recipes: Recipe[] = [
-        new Recipe('Big Mac', 'A Big-Mac with double cheese', 
+        new Recipe('Big Mac', 'A Big-Mac with double cheese',
         'http://d701vexhkz032.cloudfront.net/media/images/menu-content/BR/sanduiches-de-carne/bigmac_v2.png',
         [
             new Ingredient('Buns', 2),
@@ -48,5 +48,10 @@ export class RecipeService {
       updateRecipe(index: number, newRecipe: Recipe) {
           this.recipes[index] = newRecipe;
           this.recipesChanged.next(this.recipes.slice());
+      }
+
+      deleteRecipe(index: number) {
+        this.recipes.splice(index,1);
+        this.recipesChanged.next(this.recipes.slice());
       }
 }
