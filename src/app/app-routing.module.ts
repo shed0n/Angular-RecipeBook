@@ -8,16 +8,17 @@ import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.com
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 import {SignupComponent} from './auth/signup/signup.component';
 import {SigninComponent} from './auth/signin/signin.component';
+import {AuthGuard} from './auth/auth-guard.service';
 
 const appRoutes: Routes = [
-    { path: '', redirectTo: '/recipes', pathMatch: 'full'},
+    { path: '', redirectTo: '/recipes', pathMatch: 'full', canActivate: [AuthGuard] },
     { path: 'recipes', component: RecipesComponent, children: [
-        { path: '', component: RecipeStartComponent},
-        { path: 'new', component: RecipeEditComponent },
-        { path: ':id', component: RecipeDetailComponent},
-        { path: ':id/edit', component: RecipeEditComponent },
-    ]},
-    { path: 'shopping-list', component: ShoppingListComponent},
+        { path: '', component: RecipeStartComponent, canActivate: [AuthGuard] },
+        { path: 'new', component: RecipeEditComponent, canActivate: [AuthGuard] },
+        { path: ':id', component: RecipeDetailComponent, canActivate: [AuthGuard] },
+        { path: ':id/edit', component: RecipeEditComponent, canActivate: [AuthGuard] },
+    ]} ,
+    { path: 'shopping-list', component: ShoppingListComponent, canActivate: [AuthGuard] },
     { path: 'signup', component: SignupComponent },
     { path: 'signin', component: SigninComponent }
 
