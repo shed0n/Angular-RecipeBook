@@ -45,11 +45,7 @@ export class AuthService {
   }
 
   isAuthenticated() {
-    if (this.token != null) {
-      return true;
-    }  else {
-      return false;
-      }
+    return this.token != null;
     }
 
 }
