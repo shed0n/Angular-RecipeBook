@@ -8,12 +8,12 @@ import {RecipeDetailComponent} from './recipe-detail/recipe-detail.component';
 import {AuthGuard} from '../auth/auth-guard.service';
 
 const recipesRoutes: Routes = [
-  { path: 'recipes', component: RecipesComponent, children: [
+  { path: '', component: RecipesComponent, children: [
     { path: '', component: RecipeStartComponent, canActivate: [AuthGuard] },
     { path: 'new', component: RecipeEditComponent, canActivate: [AuthGuard] },
     { path: ':id', component: RecipeDetailComponent, canActivate: [AuthGuard] },
     { path: ':id/edit', component: RecipeEditComponent, canActivate: [AuthGuard] },
-  ]} ,
+  ]},
 ];
 
 @NgModule({
