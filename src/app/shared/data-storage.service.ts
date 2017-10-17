@@ -10,7 +10,7 @@ import {AuthService} from '../auth/auth.service';
 export class DataStorageService {
   constructor(private http: Http, private recipeService: RecipeService, private authService: AuthService) {}
 
-  storeRecipe() {
+  storeRecipes() {
     const token = this.authService.getToken();
     return this.http.put('https://shedon-angular-project.firebaseio.com/recipes.json?auth=' + token, this.recipeService.getRecipes());
   }
@@ -37,3 +37,4 @@ export class DataStorageService {
       );
   }
 }
+
