@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 import { RecipeService } from '../recipes/recipe.service';
 import { Recipe } from '../recipes/recipe.model';
@@ -13,17 +13,22 @@ export class DataStorageService {
 
   storeRecipes() {
     const token = this.authService.getToken();
-    return this.httpClient.put('https://shedon-angular-project.firebaseio.com/recipes.json?auth=' + token, this.recipeService.getRecipes(), {
-      observe: 'body'
+    // const headers =  new HttpHeaders().set('Authorization', 'Bearer sdasdasdad');
+
+    return this.httpClient.put('https://shedon-angular-project.firebaseio.com/recipes.json', this.recipeService.getRecipes(), {
+      observe: 'body',
+      params: new  HttpParams().set('auth',  token)
+      // headers: headers
     });
   }
 
   getRecipes() {
     const token = this.authService.getToken();
     // this.httpClient.get<Recipe[]>('https://shedon-angular-project.firebaseio.com/recipes.json?auth=' + token)
-    this.httpClient.get<Recipe[]>('https://shedon-angular-project.firebaseio.com/recipes.json?auth=' + token, {
+    this.httpClient.get<Recipe[]>('https://shedon-angular-project.firebaseio.com/recipes.json', {
       observe: 'body',
-      responseType: 'json'
+      responseType: 'json',
+      params: new  HttpParams().set('auth',  token)
     })
       .map(
         (recipes) => {
