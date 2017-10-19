@@ -17,7 +17,6 @@ export class ShoppingListComponent implements OnInit  {
 
   ngOnInit() {
     this.shoppingListState = this.store.select('shoppingList');
-
   }
 
   onEditItem(index: number) {
