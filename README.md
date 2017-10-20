@@ -8,4 +8,5 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Purpose
 Create an App with Shopping List and Recipe Book.
-This will recive updates  while the app is in development.
+This will receive updates  while the app is in development.
+
