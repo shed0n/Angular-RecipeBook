@@ -1,4 +1,4 @@
-# AngularProject
+# ShoppingAndRecipe-Angular6
 ## Purpose
 This project was created with the intention to get a deeper understanding of Angular.
 
