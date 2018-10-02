@@ -1,12 +1,7 @@
 # AngularProject
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.3.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
 ## Purpose
-Create an App with Shopping List and Recipe Book.
-This will receive updates  while the app is in development.
+This project was created with the intention to get a deeper understanding of Angular.
+
+## What it is?
+An App with a Shopping List and a Recipe Book. This project is based on the course "Angular 6 - The Complete Guide" by Maximilian Schwarzmüller, available at Udemy.
 
